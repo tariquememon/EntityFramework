@@ -4,9 +4,8 @@ using System.Text;
 
 namespace InventoryModels
 {
-    public class Item
-    {
-        public int Id { get; set; }
+    public class Item : FullAuditModel
+    {   
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string Description { get; set; }
