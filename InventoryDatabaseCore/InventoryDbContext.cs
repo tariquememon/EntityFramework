@@ -1,7 +1,10 @@
 ﻿using InventoryModels;
+using InventoryModels.Dtos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace InventoryDatabaseCore
 {
@@ -13,6 +16,9 @@ namespace InventoryDatabaseCore
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryColor> CategoryColors { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<GetItemsForListingDto> ItemsForListing { get; set; }
+        public DbSet<AllItemsPipeDelimitedStringDto> AllItemsOutput { get; set; }
+        public DbSet<GetItemsTotalValueDto> GetItemsTotalValues { get; set; }
 
         public InventoryDbContext() : base() {}
 
@@ -28,6 +34,28 @@ namespace InventoryDatabaseCore
                 .HasIndex(ig => new { ig.ItemId, ig.GenreId })
                 .IsUnique()
                 .IsClustered(false);
+
+            modelBuilder.Entity<GetItemsForListingDto>()
+                .HasNoKey()
+                .ToView("ItemsForListing");
+
+            modelBuilder.Entity<AllItemsPipeDelimitedStringDto>()
+                .HasNoKey()
+                .ToView("AllItemsOutput");
+
+            modelBuilder.Entity<GetItemsTotalValueDto>()
+                .HasNoKey()
+                .ToView("GetItemsTotalValues");
+
+            modelBuilder.Entity<Genre>(x => {
+                x.HasData(
+                    new Genre() { Id = 1, CreatedDate = DateTime.Now, IsActive = true, IsDeleted = false, Name = "Fantasy" },
+                    new Genre() { Id = 2, CreatedDate = DateTime.Now, IsActive = true, IsDeleted = false, Name = "Sci/Fi" },
+                    new Genre() { Id = 3, CreatedDate = DateTime.Now, IsActive = true, IsDeleted = false, Name = "Horror" },
+                    new Genre() { Id = 4, CreatedDate = DateTime.Now, IsActive = true, IsDeleted = false, Name = "Comedy" },
+                    new Genre() { Id = 5, CreatedDate = DateTime.Now, IsActive = true, IsDeleted = false, Name = "Drama" }
+                );
+            });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

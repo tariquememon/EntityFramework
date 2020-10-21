@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryModels", "Inventor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Activity0601_QuickCrud_Web", "Activity0601_QuickCrud_Web\Activity0601_QuickCrud_Web.csproj", "{E5CD943D-0890-4F29-83D5-CC23D7D2D8FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryDataMigrator", "InventoryDataMigrator\InventoryDataMigrator.csproj", "{D598B4C0-9C52-416C-A5E8-ADA9CA1B752A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E5CD943D-0890-4F29-83D5-CC23D7D2D8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5CD943D-0890-4F29-83D5-CC23D7D2D8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5CD943D-0890-4F29-83D5-CC23D7D2D8FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D598B4C0-9C52-416C-A5E8-ADA9CA1B752A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D598B4C0-9C52-416C-A5E8-ADA9CA1B752A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D598B4C0-9C52-416C-A5E8-ADA9CA1B752A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D598B4C0-9C52-416C-A5E8-ADA9CA1B752A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
